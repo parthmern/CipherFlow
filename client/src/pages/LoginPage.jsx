@@ -14,6 +14,10 @@ export const LoginPage = () => {
 
   const [flag,setFlag] = useState(0);
 
+  if(isLoggedIn){
+    navigate("/projects");
+  }
+
     const loginHandler = async () => {
         
         console.log("clicked on loginBtn");

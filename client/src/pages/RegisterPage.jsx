@@ -1,15 +1,21 @@
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
 import { auth } from '../fireBaseSetup/firebase';
 import { apiUrl } from '../utils/apiUtils';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { AppContext } from '../context/AppContext';
 
 export const RegisterPage = () => {
 
+    const {isLoggedIn} = useContext(AppContext);
     const [registerDetails, setRegisterDetails] = useState(null);
     const navigate = useNavigate();
+
+    if(isLoggedIn){
+        navigate("/projects");
+      }
 
     const signUpHandler = async () =>{
 
@@ -35,6 +41,9 @@ export const RegisterPage = () => {
 
     // 
     useEffect(()=>{
+        if(isLoggedIn){
+            navigate("/projects");
+          }
 
         async function registerUserFunc(){
             var toastId = toast.loading("signup loading ...")

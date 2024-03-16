@@ -9,9 +9,9 @@ const router = express.Router() ;
 
 router.post("/createProject", isUser, createProjectController);
 router.post("/getProjects", isUser, getProjectsController);
-router.post("/updateDocument",isUser, updateDocumentController);
-router.post("/getProjectDetails",isUser, getProjectDetailsController);
-router.post("/deleteProject",isUser, deleteProjectController);
-router.post("/getCode",isUser, chatgptController);
+router.post("/updateDocument", updateDocumentController);
+router.post("/getProjectDetails", getProjectDetailsController);
+router.post("/deleteProject", deleteProjectController);
+router.post("/getCode", chatgptController);
 
 module.exports = router ;

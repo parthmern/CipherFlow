@@ -114,7 +114,7 @@ export const WorkspacePage = () => {
   return (
     <div className='flex h-full relative '>
 
-        <div className={`ml-5 h-screen ${flag == "canvas" && "hidden"} ${flag == "document" && "w-[100%]"} ${flag == "both" && "w-[30%]"}`} >
+        <div className={`pl-14 h-screen ${flag == "canvas" && "hidden"} ${flag == "document" && "w-[100%]"} ${flag == "both" && "w-[30%]"}`} >
             <Editor initialDocData={initialDocData} documentData={documentData} setDocumentData={setDocumentData}   />
         </div>
 
@@ -125,7 +125,7 @@ export const WorkspacePage = () => {
             <Canvas triggerSave={triggerSave} initWhiteBoard={initWhiteBoard} setWhiteBoard={setWhiteBoard} />
         </div>
 
-        <div className='absolute cursor-pointer top-[0px] right-0 md:top-[-35px] md:left-[70%] px-2 py-[0.5px] rounded z-10 bg-yellow-500' onClick={()=>setTriggerSave((prev)=> prev+1)}>
+        <div className='absolute cursor-pointer top-[0px] w-[50px] right-0 md:top-[-35px] md:left-[70%] px-2 py-[0.5px] rounded z-10 bg-yellow-500' onClick={()=>setTriggerSave((prev)=> prev+1)}>
           Save
         </div>
 

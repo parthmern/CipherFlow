@@ -217,8 +217,12 @@ const chatgptController =async(req, res) =>{
             }
             if (response.toLowerCase().includes("apologize")) {
                 throw new Error("String contains the word 'apologize'."); // Throw an error if 'apologize' is found
-            } else {
-                console.log("String does not contain the word 'apologize'.");
+            } 
+            else if(response.toLowerCase().includes("sorry")){
+                throw new Error("String contains the word 'SORRY'."); 
+            }
+            else {
+                console.log("String does not contain the word 'apologize/sorry'.");
             }
             return(
                 res.status(200).json(
