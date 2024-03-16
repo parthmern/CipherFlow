@@ -1,9 +1,9 @@
 
 const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
 
+require('dotenv').config()
 
-
-const AZURE_OPENAI_KEY = "89ce4ded22324fb394729a60fd00e95e";
+const AZURE_OPENAI_KEY = process.env.AZURE_OPENAI_KEY ;
 const AZURE_OPENAI_ENDPOINT = "https://parth.openai.azure.com/";
 
 const client = new OpenAIClient(

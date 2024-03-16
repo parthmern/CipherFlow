@@ -2,13 +2,13 @@ const { loginController, signupController } = require("../controllers/userContro
 
 
 const express = require("express");
-const isUser = require("../middleware/auth");
+const { checkingToken } = require("../middleware/auth");
 const router = express.Router();
 
 
 router.post("/signup", signupController);
 router.post("/login", loginController);
 
-router.post("/auth", isUser);
+router.post("/checkingToken", checkingToken);
 
 module.exports = router ;
