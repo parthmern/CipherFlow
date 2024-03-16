@@ -47,15 +47,15 @@ export const CodePage = () => {
 
 
   return (
-    <div className='bg-black h-[100vh] flex flex-col items-center pt-10'>
+    <div className='bg-black h-full flex flex-col items-center pt-10'>
 
     <CodeSelector setLanguage={setLanguage} language={language} />
 
-      <div className='w-[80%] mx-auto mt-10'>
+      <div className='w-[80%] mx-auto my-10 '>
         {
           (code&&language) ?
           (<CodeBlock  text={code} language={language} theme={a11yLight} />) : (
-            <div className=' flex items-center justify-center'>
+            <div className=' flex h-[80vh] items-center justify-center'>
               <span className="loader mx-auto "></span>
             </div>
           )
