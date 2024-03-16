@@ -51,7 +51,7 @@ export const Sidebar = ({setProjectChangeDetect}) => {
             <p className='text-[#FFD100]'>{`${userData?.name} 's`}</p>
             <p className='text-white'> Projects</p>
             <div className='border w-full border-b'></div>
-            <div onClick={()=>{navigate("/")}} className='mt-4 text-emerald-500 text-[15px]'>
+            <div onClick={()=>{navigate("/")}} className='mt-4 text-emerald-500 text-white text-[15px]'>
               Move to Home 
             </div>
           </div>

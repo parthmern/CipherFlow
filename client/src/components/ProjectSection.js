@@ -29,7 +29,7 @@ export const ProjectSection = ({projectChangeDetect, setProjectChangeDetect}) =>
 
                 const totalProjs = res?.data?.projects ;
 
-                setProjects(totalProjs);
+                setProjects(totalProjs.reverse());
 
                 toast.success("Project section updated !")
                 

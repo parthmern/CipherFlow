@@ -29,7 +29,7 @@ export const Navbar = () => {
   }
 
   return (
-    <div className="bg-black z-[1000] border-b text-white h-[50px] w-[100%] flex items-center justify-between   px-5">
+    <div className="bg-black z-[1000] border-b text-white h-[50px] w-[100%] flex items-center justify-between px-2  md:px-5">
 
       <div onClick={()=>{navigate("/")}} className='hidden md:flex gap-x-1 font-[Akira] cursor-pointer hover:text-[#7FFFD4]'>
         <span className='text-[#AAFF00] font-green-200'>Cipher </span> <span className=''>Flow</span>
@@ -47,12 +47,12 @@ export const Navbar = () => {
               </div>
             </>
           ) : (
-            <div className='flex items-center w-full justify-evenly md:justify-end  gap-x-3'>
-              <div onClick={()=>{navigate("/projects")}} className='font-[Akira] cursor-pointer hover:text-[#AAFF00] mb-[-2px] text-white'>
+            <div className='flex items-center w-full justify-between md:justify-end  gap-x-3'>
+              <div onClick={()=>{navigate("/projects")}} className='font-[Akira] cursor-pointer hover:text-[#AAFF00] mb-[-2px] md:text-[20px] text-[12px] text-white'>
                 Projects |
               </div>
-              <p className='' >{userData?.name}</p>
-              <div className='bg-blue-500 cursor-pointer hover:bg-blue-700 text-white py-1 px-3 rounded' onClick={logoutHandler}>
+              <p className='md:text-[13px] text-[10px] my-auto ' >{userData?.name}</p>
+              <div className='bg-blue-500 flex item-center justify-center cursor-pointer hover:bg-blue-700 text-white text-[10px] md:text-[15px] px-2 py-1 md:py-1 md:px-3 rounded' onClick={logoutHandler}>
                 LOGOUT
               </div>
             </div>
