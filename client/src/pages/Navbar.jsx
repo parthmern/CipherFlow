@@ -48,7 +48,7 @@ export const Navbar = () => {
             </>
           ) : (
             <div className='flex items-center w-full justify-between md:justify-end  gap-x-3'>
-              <div onClick={()=>{navigate("/projects")}} className='font-[Akira] cursor-pointer hover:text-[#AAFF00] mb-[-2px] md:text-[20px] text-[12px] text-white'>
+              <div onClick={()=>{navigate("/projects")}} className='font-[Akira] cursor-pointer hover:text-[#AAFF00] mb-[-2px] md:text-[15px] text-[12px] text-white'>
                 Projects |
               </div>
               <p className='md:text-[13px] text-[10px] my-auto ' >{userData?.name}</p>
