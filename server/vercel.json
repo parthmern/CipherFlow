@@ -16,7 +16,7 @@
     
     "functions": {
         "project/getCode": {
-          "maxDuration": 30 
+          "maxDuration": 35 
         },
         "/project/getCode": {
           "maxDuration": 30
