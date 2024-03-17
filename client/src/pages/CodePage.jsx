@@ -19,20 +19,32 @@ export const CodePage = () => {
       
       try{
         
-        const res = await axios.post(`${apiUrl}/project/getCode`, {id, lang: language});
+        const res = await axios.post(`${apiUrl}/project/getCode3`, {id, lang: language});
         console.log("res",res);
-        let ans = res?.data?.response;
+        let ans = res?.data?.ans;
+
+        //const code = await axios.post(`${apiUrl}/project/getCode2`, {ans, lang: language});
+
+        // if (ans.startsWith("```") && ans.endsWith("```")) {
+        //   ans = ans.slice(3, -3); // Remove ``` from beginning and end
+        // }
+
+        console.log("code=>", code);
 
         if (ans.startsWith("```") && ans.endsWith("```")) {
           ans = ans.slice(3, -3); // Remove ``` from beginning and end
-      }
+        }
 
         setCode(ans);
         toast.success("got the code");
       }
       catch(error){
         console.log("error=>", error);
+        if(error?.response?.status == 504){
+          toast.error("Gpt error refresh page again");
+      }
         toast.error("Gpt error refresh page again");
+        toast.error("rate_limit_exceeded");
       }
       toast.dismiss(toastId);
     }
