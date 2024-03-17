@@ -26,18 +26,6 @@
       "api/*.js": {
         "memory": 3009,
         "maxDuration": 30
-      },
-      "/project/*": {
-        "memory": 3009,
-        "maxDuration": 30
-      },
-      "/project/getCode.js": {
-        "memory": 3009,
-        "maxDuration": 30
-      },
-      "controllers/chatgptController.js": {
-        "memory": 3009,
-        "maxDuration": 30
       }
 
     }
