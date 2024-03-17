@@ -7,7 +7,7 @@ const dbConnect = async () => {
         const res = await mongoose.connect(dbUrl);
         console.log("db Connection successful");
     } catch (error) {
-        console.error("Error in dbConnect:", error);
+        console.error("Error in dbConnect e=>:", error);
     }
 }
 
