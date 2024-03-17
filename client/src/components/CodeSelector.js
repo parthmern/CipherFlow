@@ -1,14 +1,33 @@
 import { Select, Option } from "@material-tailwind/react";
+import React, { useState, useEffect } from 'react';
 
-import React from 'react'
+export const CodeSelector = ({ language, setLanguage }) => {
+  const [cooldown, setCooldown] = useState(false);
 
-export const CodeSelector = ({language, setLanguage}) => {
+  useEffect(() => {
+    let cooldownTimeout;
 
-    console.log("langauage=>", language);
+    if (cooldown) {
+      cooldownTimeout = setTimeout(() => {
+        setCooldown(false);
+      }, 30000); // 20 seconds cooldown
+    }
+
+    return () => {
+      clearTimeout(cooldownTimeout);
+    };
+  }, [cooldown]);
+
+  const handleLanguageChange = (val) => {
+    if (!cooldown) {
+      setLanguage(val);
+      setCooldown(true);
+    }
+  };
 
   return (
     <div className="w-72">
-      <Select value={language} onChange={(val)=>{setLanguage(val)}} className="text-white" label="Select Version">
+      <Select value={language} onChange={handleLanguageChange} className="text-white" label="Select Version" disabled={cooldown}>
         <Option value="c programming language">C language</Option>
         <Option value="java programming language">Java</Option>
         <Option value="javascript programming language">JavaScript</Option>
@@ -16,5 +35,5 @@ export const CodeSelector = ({language, setLanguage}) => {
         <Option value="python programming language">Python</Option>
       </Select>
     </div>
-  )
-}
+  );
+};
