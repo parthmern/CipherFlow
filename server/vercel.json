@@ -16,10 +16,10 @@
     
     "functions": {
         "project/getCode": {
-          "maxDuration": 35 
+          "maxDuration": 15 
         },
         "/project/getCode": {
-          "maxDuration": 30
+          "maxDuration": 15
         }
       }
 }
