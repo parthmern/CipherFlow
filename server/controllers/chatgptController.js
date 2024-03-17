@@ -242,7 +242,7 @@ const chatgptController =async(req, res) =>{
                 res.status(400).json(
                     {
                         success : false, 
-                        message : "gpt fatt gaya", 
+                        message : "gpt error while generating the code", 
                         error ,
                     }
                 )
