@@ -12,7 +12,7 @@ const chatgptControllerGpt = async (req, res) =>{
 
         const {id, lang} = req.body ;
 
-        console.log("Fetching project details for ID:", id);
+        console.log("Fetching project details for ID: =>", id);
 
         // Find the project by ID
         const projectDetails = await project.findById(id);
