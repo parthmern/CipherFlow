@@ -266,4 +266,88 @@ const chatgptController =async(req, res) =>{
     }
 }
 
-module.exports = {chatgptController};
+const chatGptCodeController = async (req, res) =>{
+
+    let {ans} = req.body ;
+
+    ans = `code for carwashing
+    1. start
+    2. call the user to enter car number
+    3. check car is available in list
+    4. if (car is available)
+       - move car to the car wash
+       - clean car
+       - take payment from user
+    5. else
+       - call customer service
+    6. End`;
+
+    try{
+
+        const que2 = `${ans} this is pseudocode so convert this to ${lang} language and make sure that it return only ${lang} code nothing extra not single word extra 
+        
+        -> rules to generate the code
+        1)output with no introduction, no explaintation, only code
+
+        2)DONT MAKE ANY MISTAKES, check if you did any
+
+        3)make sure only return ${lang} code, and nothing else.
+
+        4)make sure no DOCUMENATION IN THE OUTPUT
+
+        5)make sure to return only code of block
+
+        6)make sure to do not add pseudocode in code block
+
+        7)make sure to donot add note from your side
+
+        8) make sure to donot add extra lines or words or comments in code
+
+        - make sure to follow above 8 rules while generating code block
+
+        - make sure to follow all above rules all time
+        
+        ` ; 
+
+        const response =  await runPrompt(que2, "",400, 0.5) ;
+        console.log("res=>", response) ;
+        if(response.code == '429'){
+            throw error ;
+        }
+        if (response.toLowerCase().includes("apologize")) {
+            throw new Error("String contains the word 'apologize'."); // Throw an error if 'apologize' is found
+        } 
+        else if(response.toLowerCase().includes("sorry")){
+            throw new Error("String contains the word 'SORRY'."); 
+        }
+        else {
+            console.log("String does not contain the word 'apologize/sorry'.");
+        }
+        return(
+            res.status(200).json(
+                {
+                    success : true ,
+                    message : "code generated successfully",
+                    response
+                }
+            )
+        )
+
+    }
+    catch(error){
+        
+        console.log("error in chatgpt api =>", error);
+        return(
+            res.status(400).json(
+                {
+                    success : false, 
+                    message : "gpt error while generating the code", 
+                    error ,
+                }
+            )
+        )
+        
+    }
+}
+
+module.exports = {chatgptController, chatGptCodeController};
