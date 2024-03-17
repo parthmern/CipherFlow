@@ -5,7 +5,7 @@ const project = require("../models/projectModel");
 const runPrompt = require("../utils/azureOpenai");
 
 require('dotenv').config()
-API_KEY = process.env.API_KEY;
+const API_KEY = process.env.API_KEY;
 
 const chatgptControllerGpt = async (req, res) =>{
     try{
